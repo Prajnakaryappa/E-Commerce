@@ -6,8 +6,9 @@ import com.jsp.ecommerce.dto.UserDto;
 
 import ch.qos.logback.core.model.Model;
 
-public interface CustomerService {
+public interface AdminService {
+	
 	String register(UserDto userDto , Model model);
 	
-	String register(UserDto userDto , BindingResult result);
+	String register(UserDto userDto , BindingResult result );
 }

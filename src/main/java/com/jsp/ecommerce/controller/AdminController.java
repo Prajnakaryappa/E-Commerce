@@ -1,6 +1,7 @@
 package com.jsp.ecommerce.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -20,21 +21,20 @@ import org.springframework.web.bind.annotation.RequestBody;
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
+	
+	@Autowired
+	AdminService adminService;
 
 	
 	@GetMapping("/register")
-public String loadRegister(AdminDto adminDto , Model model) 
+public String loadRegister(UserDto userDto , Model model) 
 	{	
- model.addAttribute("adminDto", adminDto);
- return "admin-register.html";
+ return adminService.register(userDto, model);
 }
 	
 	@PostMapping("/regiter")
-	public String register(@Valid AdminDto adminDto, BindingResult result){
-		if(result.hasErrors()) {
-			return "admin-reguster.html" ;
-		}
-		return "redirect:/" ;
+	public String register(@Valid UserDto userDto, BindingResult result){
+		return  return adminService.register(userDto, model);
 	}
 		//TODO: process POST request
 }

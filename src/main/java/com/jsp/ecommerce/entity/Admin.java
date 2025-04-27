@@ -1,5 +1,8 @@
 package com.jsp.ecommerce.entity;
 
+import org.hibernate.annotations.CreationTimestamp;
+
+
 import jakarta.persistence.Column;
 
 import jakarta.persistence.Entity;
@@ -12,7 +15,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Admin {
+public class Merchant {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -22,4 +25,6 @@ public class Admin {
 	private String email;
 	@Column(nullable = false)
 	private String password;
+	@CreationTimestamp
+	private LocalDataTime createdTime ;
 }
